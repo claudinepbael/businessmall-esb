@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Businessmall", "Businessmal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuttle", "Shuttle\Shuttle.csproj", "{33D3AF73-F579-43C1-A635-C273AC2CA7DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Businessmall.Application", "Businessmall.Application\Businessmall.Application.csproj", "{C0A4BB1F-6D85-4D32-A233-D104D0E6BCD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{33D3AF73-F579-43C1-A635-C273AC2CA7DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33D3AF73-F579-43C1-A635-C273AC2CA7DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33D3AF73-F579-43C1-A635-C273AC2CA7DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0A4BB1F-6D85-4D32-A233-D104D0E6BCD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A4BB1F-6D85-4D32-A233-D104D0E6BCD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A4BB1F-6D85-4D32-A233-D104D0E6BCD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A4BB1F-6D85-4D32-A233-D104D0E6BCD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,6 @@
+C:\Users\justine.ronatay\Documents\Visual Studio 2012\Projects\businessmall-esb\Businessmall.Application\obj\Debug\Businessmall.Application.csprojResolveAssemblyReference.cache
+C:\Users\justine.ronatay\Documents\Visual Studio 2012\Projects\businessmall-esb\Businessmall.Application\bin\Debug\Businessmall.Application.dll.config
+C:\Users\justine.ronatay\Documents\Visual Studio 2012\Projects\businessmall-esb\Businessmall.Application\bin\Debug\Businessmall.Application.dll
+C:\Users\justine.ronatay\Documents\Visual Studio 2012\Projects\businessmall-esb\Businessmall.Application\bin\Debug\Businessmall.Application.pdb
+C:\Users\justine.ronatay\Documents\Visual Studio 2012\Projects\businessmall-esb\Businessmall.Application\obj\Debug\Businessmall.Application.dll
+C:\Users\justine.ronatay\Documents\Visual Studio 2012\Projects\businessmall-esb\Businessmall.Application\obj\Debug\Businessmall.Application.pdb

@@ -108,6 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -117,6 +118,94 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\blueprint\ie.css" />
+    <Content Include="Content\blueprint\plugins\buttons\icons\cross.png" />
+    <Content Include="Content\blueprint\plugins\buttons\icons\key.png" />
+    <Content Include="Content\blueprint\plugins\buttons\icons\tick.png" />
+    <Content Include="Content\blueprint\plugins\buttons\readme.txt" />
+    <Content Include="Content\blueprint\plugins\buttons\screen.css" />
+    <Content Include="Content\blueprint\plugins\fancy-type\readme.txt" />
+    <Content Include="Content\blueprint\plugins\fancy-type\screen.css" />
+    <Content Include="Content\blueprint\plugins\link-icons\icons\doc.png" />
+    <Content Include="Content\blueprint\plugins\link-icons\icons\email.png" />
+    <Content Include="Content\blueprint\plugins\link-icons\icons\external.png" />
+    <Content Include="Content\blueprint\plugins\link-icons\icons\feed.png" />
+    <Content Include="Content\blueprint\plugins\link-icons\icons\im.png" />
+    <Content Include="Content\blueprint\plugins\link-icons\icons\lock.png" />
+    <Content Include="Content\blueprint\plugins\link-icons\icons\pdf.png" />
+    <Content Include="Content\blueprint\plugins\link-icons\icons\visited.png" />
+    <Content Include="Content\blueprint\plugins\link-icons\icons\xls.png" />
+    <Content Include="Content\blueprint\plugins\link-icons\readme.txt" />
+    <Content Include="Content\blueprint\plugins\link-icons\screen.css" />
+    <Content Include="Content\blueprint\plugins\rtl\readme.txt" />
+    <Content Include="Content\blueprint\plugins\rtl\screen.css" />
+    <Content Include="Content\blueprint\print.css" />
+    <Content Include="Content\blueprint\screen.css" />
+    <Content Include="Content\blueprint\src\forms.css" />
+    <Content Include="Content\blueprint\src\grid.css" />
+    <Content Include="Content\blueprint\src\grid.png" />
+    <Content Include="Content\blueprint\src\ie.css" />
+    <Content Include="Content\blueprint\src\print.css" />
+    <Content Include="Content\blueprint\src\reset.css" />
+    <Content Include="Content\blueprint\src\typography.css" />
+    <Content Include="Content\Cisco\images\CDS.png" />
+    <Content Include="Content\Cisco\images\cisco-outlet-transparent.png" />
+    <Content Include="Content\Cisco\images\cisco-outlet.png" />
+    <Content Include="Content\Cisco\images\ciscorefreshbtn.png" />
+    <Content Include="Content\Cisco\images\cisco_outlet_dark_green_pms3425.png" />
+    <Content Include="Content\Cisco\images\cisco_outlet_green.png" />
+    <Content Include="Content\Cisco\images\cisco_outlet_white.png" />
+    <Content Include="Content\Cisco\images\cisco_refresh.png" />
+    <Content Include="Content\Cisco\images\Cisco_Refresh_logo-white.png" />
+    <Content Include="Content\Cisco\images\clearance.png" />
+    <Content Include="Content\Cisco\images\clearance_logo.png" />
+    <Content Include="Content\Cisco\images\Excess_Logo.png" />
+    <Content Include="Content\Cisco\images\Excess_Logo_1.png" />
+    <Content Include="Content\Cisco\images\footer_bg.png" />
+    <Content Include="Content\Cisco\images\gifs\loading-big.gif" />
+    <Content Include="Content\Cisco\images\gifs\loading-small.gif" />
+    <Content Include="Content\Cisco\images\green_field.png" />
+    <Content Include="Content\Cisco\images\header_bg.png" />
+    <Content Include="Content\Cisco\images\header_bg_bup.png" />
+    <Content Include="Content\Cisco\images\header_bg_clearance.png" />
+    <Content Include="Content\Cisco\images\icons\dropdown_arrow.png" />
+    <Content Include="Content\Cisco\images\icons\favicon.ico" />
+    <Content Include="Content\Cisco\images\icons\IconExcel.png" />
+    <Content Include="Content\Cisco\images\icons\loginbutton.png" />
+    <Content Include="Content\Cisco\images\icons\magnifier_v2.png" />
+    <Content Include="Content\Cisco\images\icons\magnifier_v3.png" />
+    <Content Include="Content\Cisco\images\icons\magnifier_v3_2.png" />
+    <Content Include="Content\Cisco\images\icons\magnifier_v3_3.png" />
+    <Content Include="Content\Cisco\images\icons\magnifier_v3_red.png" />
+    <Content Include="Content\Cisco\images\icons\warning.png" />
+    <Content Include="Content\Cisco\images\outlet_text.png" />
+    <Content Include="Content\Cisco\images\screen\landingpage_border_right.png" />
+    <Content Include="Content\Cisco\images\screen\landingpage_option_border_bot.png" />
+    <Content Include="Content\Cisco\images\screen\landingpage_top.png" />
+    <Content Include="Content\Cisco\images\screen\noimagethumb.png" />
+    <Content Include="Content\Cisco\images\screen\noimgdetail.png" />
+    <Content Include="Content\Cisco\images\sprites\arrows_sprite.png" />
+    <Content Include="Content\Cisco\images\sprites\banner.jpg" />
+    <Content Include="Content\Cisco\images\sprites\BMSprite.png" />
+    <Content Include="Content\Cisco\images\sprites\BMSprite_red.png" />
+    <Content Include="Content\Cisco\images\sprites\btn_bid.png" />
+    <Content Include="Content\Cisco\images\sprites\btn_delete.png" />
+    <Content Include="Content\Cisco\images\sprites\btn_go.png" />
+    <Content Include="Content\Cisco\images\sprites\btn_refresh.png" />
+    <Content Include="Content\Cisco\images\sprites\btn_refresh_red.png" />
+    <Content Include="Content\Cisco\images\sprites\btn_shopping_cart.png" />
+    <Content Include="Content\Cisco\images\sprites\button.png" />
+    <Content Include="Content\Cisco\images\sprites\cisco_logo.gif" />
+    <Content Include="Content\Cisco\images\sprites\framework-sprite.png" />
+    <Content Include="Content\Cisco\images\sprites\greenova_logo.jpg" />
+    <Content Include="Content\Cisco\images\sprites\pager_arrow.png" />
+    <Content Include="Content\Cisco\images\sprites\shoppin_cart_icon.png" />
+    <Content Include="Content\Cisco\images\warehouse.jpg" />
+    <Content Include="Content\Cisco\images\warehouse2.jpg" />
+    <Content Include="Content\Cisco\images\warehouse2_3.jpg" />
+    <Content Include="Content\Cisco\images\welcome-banner.jpg" />
+    <Content Include="Content\Cisco\images\welcomemessage_bg.png" />
+    <Content Include="Content\Cisco\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -129,11 +218,33 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Businessmall.Application\Businessmall.Application.csproj">
+      <Project>{c0a4bb1f-6d85-4d32-a233-d104d0e6bcd7}</Project>
+      <Name>Businessmall.Application</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Security\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Master_Pages\_Layout_Main.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Cisco\images\gifs\Thumbs.db" />
+    <Content Include="Content\Cisco\images\icons\Thumbs.db" />
+    <Content Include="Content\Cisco\images\screen\Thumbs.db" />
+    <Content Include="Content\Cisco\images\sprites\Thumbs.db" />
+    <Content Include="Content\Cisco\images\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Login.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
