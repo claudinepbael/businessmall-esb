@@ -7,8 +7,8 @@
     <ProjectGuid>{33D3AF73-F579-43C1-A635-C273AC2CA7DF}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Shuttle</RootNamespace>
-    <AssemblyName>Shuttle</AssemblyName>
+    <RootNamespace>Businessmall.Shuttle.Server</RootNamespace>
+    <AssemblyName>Businessmall.Shuttle.Server</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "AddProduct";
+}
+
+@model Businessmall.ViewModels.Products.AddOrUpdateProductViewModel
+
+<h2>Add Product</h2>
+
+<form id="add-product-form">
+    <table class="table" id="add-product-table">
+        <tr>
+            <td>
+                <text>Name:</text>
+            </td><td>  
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <text>Price:</text> 
+            </td><td>
+                @Html.TextBoxFor(model => model.Price)
+                @Html.ValidationMessageFor(model => model.Price)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <text>Quantity At Hand:</text>
+            </td><td> 
+                @Html.TextBoxFor(model => model.QtyAtHand)
+                @Html.ValidationMessageFor(model => model.QtyAtHand)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" onclick="AddProduct()"> Add product </button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<script>
+    function AddProduct() {
+        
+        var formData = {
+            "Name":  document.getElementById('Name').value ,
+            "Price": document.getElementById('Price').value,
+            "QtyAtHand": document.getElementById('QtyAtHand').value
+        }
+        $.ajax({
+            type: "POST",
+            url: "/Product/AddProduct",
+            data: JSON.stringify(formData),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (d) {
+                console.log(d);
+                $("#products-list-table> tbody").
+                    append("<tr><td>".concat(d.Name,'</td><td>',d.qty_at_hand,'</td></tr>'));
+            },
+            failure: function (d) {
+                alert(d.status);
+            }
+        });
+    }
+</script>

@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Update";
+}
+
+@model Businessmall.ViewModels.Products.UpdateProductViewModel
+
+<h2>Update</h2>
+
+@using (Html.BeginForm("Update","Product",FormMethod.Post)){
+    <table class="table" id="add-product-table">
+        <tr>
+            <td>
+                <text>Name:</text>
+            </td><td>  
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <text>Price:</text> 
+            </td><td>
+                @Html.TextBoxFor(model => model.Price)
+                @Html.ValidationMessageFor(model => model.Price)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <text>Quantity At Hand:</text>
+            </td><td> 
+                @Html.TextBoxFor(model => model.QtyAtHand)
+                @Html.ValidationMessageFor(model => model.QtyAtHand)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit"> Update </button>
+            </td>
+        </tr>
+    </table>
+}

@@ -1,0 +1,24 @@
+﻿@model Businessmall.ViewModels.Users.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm("Login", "User", FormMethod.Post,new{@class = "form-signin" })) {
+    <h2 class="form-signin-heading">Log in</h2>
+    
+    if(Model.ErrorMessage != null && Model.ErrorMessage != ""){
+    <div class="alert alert-danger">
+        @Html.DisplayFor(m => m.ErrorMessage)
+    </div>
+    }
+    
+    <text>@Html.LabelFor(model => model.Username)</text>
+        @Html.TextBoxFor(model => model.Username, htmlAttributes:new { @class="form-control"})
+        @Html.ValidationMessageFor(model => model.Username)
+
+    <text>@Html.LabelFor(model => model.Password)</text>
+        @Html.PasswordFor(model => model.Password,  htmlAttributes:new { @class="form-control"})
+        @Html.ValidationMessageFor(model => model.Password)
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+}

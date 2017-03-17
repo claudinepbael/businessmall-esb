@@ -1,0 +1,73 @@
+﻿@model Businessmall.ViewModels.Users.AddOrUpdateUserViewModel
+
+@{
+    ViewBag.Title = "AddOrUpdateUserView";
+}
+
+<form id="add-user-form">
+    <table class="table" id="add-product-table">
+        <tr>
+            <td>
+                <text>@Html.LabelFor(model => model.FirstName)</text>
+            </td><td>  
+                @Html.TextBoxFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <text> @Html.LabelFor(model => model.LastName)</text> 
+            </td><td>
+                @Html.TextBoxFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <text>@Html.LabelFor(model => model.UserName)</text>
+            </td><td> 
+                @Html.TextBoxFor(model => model.UserName)
+                @Html.ValidationMessageFor(model => model.UserName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <text>@Html.LabelFor(model => model.Password)</text>
+            </td><td> 
+                @Html.TextBoxFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" onclick="AddNewUser()"> Add user </button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<script>
+    function AddNewUser() {
+        
+        var formData = {
+            "FirstName":  document.getElementById('FirstName').value ,
+            "LastName": document.getElementById('LastName').value,
+            "UserName": document.getElementById('UserName').value,
+            "Password": document.getElementById('Password').value
+        }
+        $.ajax({
+            type: "POST",
+            url: "/User/AddUser",
+            data: JSON.stringify(formData),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (d) {
+                $("#users-list-table> tbody").
+                    append("<tr><td>".concat(d.FirstName,'</td><td>',d.UserName,'</td></tr>'));
+            },
+            failure: function (d) {
+                alert(d.status);
+            }
+        });
+    }
+</script>

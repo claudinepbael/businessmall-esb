@@ -1,0 +1,34 @@
+﻿@model Businessmall.ViewModels.Users.ListUsersViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.Partial("AddOrUpdateUserView", new Businessmall.ViewModels.Users.AddOrUpdateUserViewModel())
+
+<h2>All Users</h2>
+<table class="table" id="users-list-table">
+    @if (Model.UsersList.Count() <= 0)
+    { 
+            <tr><td>No users registered</td></tr>
+    }else{
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Username</th>
+            </tr>
+        </thead>
+    }
+    @foreach (var user in Model.UsersList)
+    { 
+        <tr>
+            <td>@user.FirstName @user.LastName</td>
+            <td>@user.Username</td>
+            <td>
+                <a href="@Url.Action("Update", "User", new {id = user.Username })">
+                   Update
+                </a>
+            </td>
+        </tr>
+    }
+</table>

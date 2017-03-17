@@ -1,6 +1,6 @@
 ﻿@model Businessmall.Application.Queries.ShopUser.UserLogin
 
-@using (Html.BeginForm("Security", "login", FormMethod.Post, new { id = "form-login" })) {
+@using (Html.BeginForm("login", "Security", FormMethod.Post, new { id = "form-login" })) {
     <div class="span-4 margin-left-20 first">
         <div><span class="color-white">Username</span></div>
         <div class="username-field">@Html.TextBoxFor(m => m._userName, new { @class = "no-margin" })</div>
