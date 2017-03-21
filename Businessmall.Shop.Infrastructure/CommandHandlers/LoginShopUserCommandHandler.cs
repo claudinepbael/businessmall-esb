@@ -17,7 +17,7 @@ namespace Businessmall.Shop.Infrastructure.CommandHandlers
             {
                 try
                 {
-                    _bmService.IsUserAuthorized(context._username, context._password, false);
+                   // _bmService.IsUserAuthorized(context._username, context._password, false);
                 }
                 catch (Exception e)
                 {

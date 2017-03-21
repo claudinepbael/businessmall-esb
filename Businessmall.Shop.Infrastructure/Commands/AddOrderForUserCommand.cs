@@ -7,9 +7,9 @@ namespace Businessmall.Shop.Infrastructure.Commands
 {
     class AddOrderForUserCommand
     {
-        string productId;
-        string userId;
-        decimal quantity;
+        public string productId;
+        public string userId;
+        public decimal quantity;
 
     }
 }

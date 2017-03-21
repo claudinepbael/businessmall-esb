@@ -30,7 +30,7 @@ namespace Shop.Controllers
 
             using (var bus = ServiceBus
                 .Create(
-                    c => c.MessageHandlerFactory(new NinjectMessageHandlerFactory(new StandardKernel()))
+                  //  c => c.MessageHandlerFactory(new NinjectMessageHandlerFactory(new StandardKernel()))
                 )
                 .Start())
                 {

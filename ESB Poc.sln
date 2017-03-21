@@ -9,6 +9,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shuttle", "Shuttle\Shuttle.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Businessmall.Shop.Infrastructure", "Businessmall.Shop.Infrastructure\Businessmall.Shop.Infrastructure.csproj", "{C0A4BB1F-6D85-4D32-A233-D104D0E6BCD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Businessmall.Application.Infrastracture", "Businessmall.Application.Infrastracture\Businessmall.Application.Infrastracture.csproj", "{99DD39D1-CB7F-4459-8B26-F43C22EE4771}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C442BDA6-9B48-4C78-8B77-D5B9E7631842}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +40,10 @@ Global
 		{C0A4BB1F-6D85-4D32-A233-D104D0E6BCD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0A4BB1F-6D85-4D32-A233-D104D0E6BCD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0A4BB1F-6D85-4D32-A233-D104D0E6BCD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99DD39D1-CB7F-4459-8B26-F43C22EE4771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DD39D1-CB7F-4459-8B26-F43C22EE4771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DD39D1-CB7F-4459-8B26-F43C22EE4771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DD39D1-CB7F-4459-8B26-F43C22EE4771}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
