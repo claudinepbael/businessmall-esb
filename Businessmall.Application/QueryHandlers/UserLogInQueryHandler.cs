@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Businessmall.Shop.Infrastructure.QueryHandlers
+namespace Businessmall.Application.QueryHandlers
 {
     class UserLogInQueryHandler {
 

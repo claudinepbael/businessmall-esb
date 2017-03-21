@@ -7,8 +7,8 @@
     <ProjectGuid>{C0A4BB1F-6D85-4D32-A233-D104D0E6BCD7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Businessmall.Shop.Infrastructure</RootNamespace>
-    <AssemblyName>Businessmall.Shop.Infrastructure</AssemblyName>
+    <RootNamespace>Businessmall.Application</RootNamespace>
+    <AssemblyName>Businessmall.Application</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

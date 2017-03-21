@@ -321,9 +321,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Businessmall.Shop.Infrastructure\Businessmall.Shop.Infrastructure.csproj">
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Businessmall.Application\Businessmall.Application.csproj">
       <Project>{c0a4bb1f-6d85-4d32-a233-d104d0e6bcd7}</Project>
-      <Name>Businessmall.Shop.Infrastructure</Name>
+      <Name>Businessmall.Application</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

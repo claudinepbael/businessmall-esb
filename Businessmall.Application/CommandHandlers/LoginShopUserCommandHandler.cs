@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Shuttle.Esb;
-using Businessmall.Shop.Infrastructure.Commands;
+using Businessmall.Application.Commands;
 using Businessmall.Repositories;
 
-namespace Businessmall.Shop.Infrastructure.CommandHandlers
+namespace Businessmall.Application.CommandHandlers
 {
     class LoginShopUserCommandHandler : IMessageHandler<LoginShopUserCommand>
     {

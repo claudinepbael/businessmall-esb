@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Shuttle.Esb;
 
-namespace Businessmall.Shop.Infrastructure.Commands
+namespace Businessmall.Application.Commands
 {
     public class LoginShopUserCommand
     {

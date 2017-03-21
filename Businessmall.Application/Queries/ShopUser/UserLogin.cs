@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Businessmall.Shop.Infrastructure.Queries.ShopUser
+namespace Businessmall.Application.Queries.ShopUser
 {
     public class UserLogin {
         public string _userName {get;set;}
