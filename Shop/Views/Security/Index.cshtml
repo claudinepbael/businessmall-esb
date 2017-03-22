@@ -1,5 +1,24 @@
-﻿
-@{
-    Layout = "~/Views/Master_Pages/_Layout_Main.cshtml";
+﻿@{
+ Layout = "~/Views/Master_Pages/_Layout_Main.cshtml";
+}
+
+@model Businessmall.Application.Queries.ShopUser.UserLoginQuery
+
+@using (Html.BeginForm("login", "Security", FormMethod.Post, new { id = "form-login" })) {
+    <div class="span-4 margin-left-20 first">
+        <div><span class="color-white">Username</span></div>
+        <div class="username-field">@Html.TextBoxFor(m => m._userName, new { @class = "no-margin" })</div>
+        <div><a class="color-white" href="@Url.Action("Register", "Account")">Register</a></div>
+    </div>
+    <div class="span-4 last">
+        <div><span class="color-white">Password</span></div>
+        <div class="password-field">@Html.PasswordFor(m => m._password, new { @class = "no-margin" })</div>
+        <div><a class="color-white" href="@Url.Action("Register", "Account")">Register</a></div>
+    </div>
     
+    <div class="clear"></div>
+    <div class="submit-load margin-top-5">
+        <span id="pwheel-load" class="ir pwheel">&nbsp; </span>
+        <input id="logon-submit" class="login-btnstyle right" type="submit" value="Partner Login" tabindex="4" />
+    </div>
 }
