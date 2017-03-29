@@ -36,7 +36,8 @@ namespace Shop.Controllers
         {
 
             var result = _queryDispatcher.Dispatch<UserLoginQuery,LoggedInUser>(query);
-            return View(query);
+            
+           return RedirectToAction("ProductLists","Products");
 
             //using (var bus = ServiceBus
             //    .Create(

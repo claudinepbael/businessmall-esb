@@ -19,7 +19,7 @@ namespace Businessmall.Application.Infrastracture.Helpers {
         {
             _cache = new Dictionary<string, string>();
         }
-
+       
         public string GetQuery(string sqlName)
         {
 
@@ -32,8 +32,8 @@ namespace Businessmall.Application.Infrastracture.Helpers {
             {
                 var assembly = Assembly.GetExecutingAssembly();
                 var resourceName = string.Format("Businessmall.Application.SqlQueries.{0}", sqlName);
-
                
+              
                 var result = string.Empty;
                 using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                 {

@@ -13,7 +13,7 @@ namespace Businessmall.Application.Infrastracture.Configurations {
         const string ENVIRONMENT ="environments";
 
         public static ApplicationConfigurationHandler GetInstance(){
-            return ConfigurationManager.GetSection(WEBSHOPCONFIGURATION_KEY) as ApplicationConfigurationHandler;
+            return (ApplicationConfigurationHandler)ConfigurationManager.GetSection(WEBSHOPCONFIGURATION_KEY)  ;
         }
 
         [ConfigurationProperty(ACTIVE_ENVIRONMENT,IsRequired = true)]

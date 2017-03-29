@@ -1,3 +1,15 @@
+using Ninject;
+using Ninject.Web.Common;
+using System.Reflection;
+using Businessmall.Application.Infrastracture.Contracts;
+using System.Web.Mvc;
+using Ninject.Web.Mvc;
+using Businessmall.Application.Infrastracture.Dispatchers;
+using Businessmall.Application.Infrastracture.Data;
+using Businessmall.Application.Infrastracture.Helpers;
+using Ninject.Extensions.Conventions;
+
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Shop.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Shop.App_Start.NinjectWebCommon), "Stop")]
 
@@ -70,8 +82,7 @@ namespace Shop.App_Start
         private static void RegisterServices(IKernel kernel)
         {
            
-            kernel.Load(Assembly.GetExecutingAssembly());
-             kernel.Load(Assembly.GetExecutingAssembly());
+           
             kernel.Bind<HttpContext>().ToMethod(ctx => HttpContext.Current).InTransientScope();
 
             kernel.Bind<HttpContextBase>().ToMethod(ctx => new HttpContextWrapper(HttpContext.Current)).InTransientScope();

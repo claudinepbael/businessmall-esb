@@ -8,16 +8,16 @@ using Businessmall.Application.Infrastracture.Contracts;
 
 namespace Shop.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
+
     {
-        private IQueryDispatcher _queryDispatcher;
-        private ICommandDispatcher _commandDispatcher;
+     
         //
         // GET: /Home/
-        public HomeController (IQueryDispatcher queryDispatcher,ICommandDispatcher commandDispatcher) {
-            _queryDispatcher = queryDispatcher;
-            _commandDispatcher = commandDispatcher;
+        public HomeController (IQueryDispatcher queryDispatcher,ICommandDispatcher commandDispatcher) :base (queryDispatcher,commandDispatcher){
+           
         }
+
         public ActionResult Index()
         {
             return View(new ShopListProductsViewModel());

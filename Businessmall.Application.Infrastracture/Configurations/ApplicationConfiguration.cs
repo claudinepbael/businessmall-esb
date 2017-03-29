@@ -14,12 +14,13 @@ namespace Businessmall.Application.Infrastracture.Constants {
 
         const string CURRENT_ENVIRONMENT ="environment";
         const string DATABASE_CONNECTION_NAME = "databaseConnectionName";
-        private ApplicationConfigurationHandler _configSection;
-
-        public static ApplicationConfiguration Current {get; private set; }
-
-        static object _sync = new object();
-
+       
+        
+        static ApplicationConfiguration() {
+            lock (_sync) {
+                Current = GetEnvironmentConfiguration(string.Empty);
+            }
+        }
         private ApplicationConfiguration InitializeWith (ApplicationConfigurationHandler configSection){
             _configSection = configSection;
             return this;
@@ -31,6 +32,11 @@ namespace Businessmall.Application.Infrastracture.Constants {
 
             return configSection.Environments[selectedEnvironment].InitializeWith(configSection);
         }
+         private ApplicationConfigurationHandler _configSection;
+
+        public static ApplicationConfiguration Current {get; private set; }
+
+        static object _sync = new object();
 
         [ConfigurationProperty(CURRENT_ENVIRONMENT, IsRequired = true)]
         public string Environment {

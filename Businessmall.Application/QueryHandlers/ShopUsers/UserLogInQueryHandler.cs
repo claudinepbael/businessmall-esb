@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Businessmall.Application.Infrastracture.Contracts;
 using Businessmall.Application.Queries.ShopUser;
 using Businessmall.Application.QueryResults.ShopUsers;
+using Businessmall.Application.Infrastracture.Helpers;
 namespace Businessmall.Application.QueryHandlers
 {
     public class UserLogInQueryHandler:IQueryHandler<UserLoginQuery,LoggedInUser> {
@@ -19,12 +20,17 @@ namespace Businessmall.Application.QueryHandlers
         }
         public LoggedInUser Retrieve(UserLoginQuery query){
           
+            query._password = Encryptor.MD5Hash(query._password);
             return _dataContext.FindOne<UserLoginQuery,LoggedInUser>(GetSelectQuery(), query);
         }
 
         public string GetSelectQuery(){
-            return _helper.GetQuery("UserLoginQuery.sql");
+           
+            
+            return AppDomain.CurrentDomain.GetResourceString("Businessmall.Application.SqlQueries.UserLoginQuery.sql");
         }
+
+
         
     }
 }
