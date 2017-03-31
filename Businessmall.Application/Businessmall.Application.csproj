@@ -51,8 +51,11 @@
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\AddOrderForUserCommand.cs" />
-    <Compile Include="Commands\LoginShopUserCommand.cs" />
+    <Compile Include="Commands\Order\AddOrderForUserCommand.cs" />
+    <Compile Include="Commands\Order\LoginShopUserCommand.cs" />
+    <Compile Include="Commands\Order\PlaceOrderCommand.cs" />
+    <Compile Include="Commands\Order\SaveOrderCommand.cs" />
+    <Compile Include="Commands\Order\UpdateOrderConfirmationCommand.cs" />
     <Compile Include="Events\OrderPlacedEvent.cs" />
     <Compile Include="Events\OrderSavedEvent.cs" />
     <Compile Include="Queries\Product\GetAvailableProductsQuery.cs" />
