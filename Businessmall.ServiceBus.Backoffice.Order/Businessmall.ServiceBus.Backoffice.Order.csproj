@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{99DD39D1-CB7F-4459-8B26-F43C22EE4771}</ProjectGuid>
+    <ProjectGuid>{063C0FB0-FFEE-4ED3-A498-7DA8C4B091AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Businessmall.Application.Infrastracture</RootNamespace>
-    <AssemblyName>Businessmall.Application.Infrastracture</AssemblyName>
+    <RootNamespace>Businessmall.Application.Backoffice.Order</RootNamespace>
+    <AssemblyName>Businessmall.Application.Backoffice.Order</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -24,7 +23,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,22 +32,40 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Shuttle.Core.Data, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Shuttle.Core.Data.8.0.0\lib\net45-full\Shuttle.Core.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Shuttle.Core.Host, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Shuttle.Core.Host.8.0.0\lib\net45-full\Shuttle.Core.Host.exe</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Shuttle.Core.Infrastructure, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Shuttle.Core.Infrastructure.8.0.0\lib\net45-full\Shuttle.Core.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Shuttle.Core.Ninject, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Shuttle.Core.Ninject.8.0.0\lib\net45-full\Shuttle.Core.Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Shuttle.Esb, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Shuttle.Esb.8.0.0\lib\net45-full\Shuttle.Esb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Shuttle.Esb.Sql.Queue, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Shuttle.Esb.Sql.Queue.8.0.0\lib\net45-full\Shuttle.Esb.Sql.Queue.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,38 +74,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configurations\ApplicationConfigurationCollection.cs" />
-    <Compile Include="Configurations\ApplicationConfigurationHandler.cs" />
-    <Compile Include="Configurations\ApplicationSetting.cs" />
-    <Compile Include="Configurations\ApplicationConfiguration.cs" />
-    <Compile Include="Contracts\IApplicationHelper.cs" />
-    <Compile Include="Contracts\ICommand.cs" />
-    <Compile Include="Contracts\ICommandDispatcher.cs" />
-    <Compile Include="Contracts\ICommandHandler.cs" />
-    <Compile Include="Contracts\IDataContext.cs" />
-    <Compile Include="Contracts\IEvent.cs" />
-    <Compile Include="Contracts\IQuery.cs" />
-    <Compile Include="Contracts\IQueryDispatcher.cs" />
-    <Compile Include="Contracts\IQueryHandler.cs" />
-    <Compile Include="Contracts\IQueryResult.cs" />
-    <Compile Include="Contracts\ISelectList.cs" />
-    <Compile Include="Data\DataContext.cs" />
-    <Compile Include="Dispatchers\CommandDispatcher.cs" />
-    <Compile Include="Dispatchers\QueryDispatcher.cs" />
-    <Compile Include="Helpers\ApplicationHelper.cs" />
-    <Compile Include="Helpers\Encryptor.cs" />
-    <Compile Include="Helpers\ResourceHelper.cs" />
-    <Compile Include="Helpers\SelectList.cs" />
-    <Compile Include="Helpers\StringHelpers.cs" />
+    <Compile Include="EventHandlers\OrderPlacedEventHandler.cs" />
+    <Compile Include="Host.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Constants\" />
+    <ProjectReference Include="..\Businessmall.Application.Infrastracture\Businessmall.Application.Infrastracture.csproj">
+      <Project>{99dd39d1-cb7f-4459-8b26-f43c22ee4771}</Project>
+      <Name>Businessmall.Application.Infrastracture</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Businessmall.Application\Businessmall.Application.csproj">
+      <Project>{c0a4bb1f-6d85-4d32-a233-d104d0e6bcd7}</Project>
+      <Name>Businessmall.Application</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

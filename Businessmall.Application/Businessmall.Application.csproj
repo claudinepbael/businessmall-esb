@@ -46,14 +46,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CommandHandlers\" />
     <Folder Include="Event Handler\" />
-    <Folder Include="Event\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandHandlers\LoginShopUserCommandHandler.cs" />
     <Compile Include="Commands\AddOrderForUserCommand.cs" />
     <Compile Include="Commands\LoginShopUserCommand.cs" />
+    <Compile Include="Events\OrderPlacedEvent.cs" />
+    <Compile Include="Events\OrderSavedEvent.cs" />
     <Compile Include="Queries\Product\GetAvailableProductsQuery.cs" />
     <Compile Include="Queries\ShopUser\UserLoginQuery.cs" />
     <Compile Include="QueryHandlers\Products\GetAvailableProductsQueryHandler.cs" />

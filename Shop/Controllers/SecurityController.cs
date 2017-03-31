@@ -35,29 +35,13 @@ namespace Shop.Controllers
         public ActionResult Login(UserLoginQuery query)
         {
 
-            var result = _queryDispatcher.Dispatch<UserLoginQuery,LoggedInUser>(query);
+           var result = _queryDispatcher.Dispatch<UserLoginQuery,LoggedInUser>(query);
+
+           if (result != null) { 
+                //call UserLoggedInEvent
+           }
             
            return RedirectToAction("ProductLists","Products");
-
-            //using (var bus = ServiceBus
-            //    .Create(
-            //      //  c => c.MessageHandlerFactory(new NinjectMessageHandlerFactory(new StandardKernel()))
-            //    )
-            //    .Start())
-            //    {
-            //        string userName;
-
-            //        while (!string.IsNullOrEmpty(userName = Console.ReadLine()))
-            //        {
-            //            bus.Send(new LoginShopUserCommand
-            //            {
-            //                _username = "username",
-            //                _password = "password"
-            //            }, c => c.WillExpire(DateTime.Now.AddSeconds(5)));
-            //        }
-            //    }
-            //FormsAuthentication.SetAuthCookie("shopUser_username", false);
-            //return RedirectToAction("Index", "Home");
 
         }
     }

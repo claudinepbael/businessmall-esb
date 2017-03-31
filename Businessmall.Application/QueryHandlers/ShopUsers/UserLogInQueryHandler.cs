@@ -15,9 +15,10 @@ namespace Businessmall.Application.QueryHandlers
         private IApplicationHelper _helper;
 
         public UserLogInQueryHandler (IDataContext context, IApplicationHelper helper){
-            _dataContext= context;
+            _dataContext = context;
             _helper = helper;
         }
+
         public LoggedInUser Retrieve(UserLoginQuery query){
           
             query._password = Encryptor.MD5Hash(query._password);
