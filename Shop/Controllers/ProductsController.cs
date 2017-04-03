@@ -20,7 +20,7 @@ namespace Shop.Controllers
         public ActionResult ProductLists()
         {
             List<AvailableProduct> availableProducts = _queryDispatcher.Dispatch<GetAvailableProductsQuery,SelectList<AvailableProduct>>(new GetAvailableProductsQuery()).Data;
-            return View();
+            return View(availableProducts);
         }
 
     }
