@@ -110,7 +110,10 @@ namespace Shop.App_Start
                 .SelectAllClasses().InheritedFrom(typeof(ICommandHandler<>))
                 .BindAllInterfaces());
 
- 
+            kernel.Bind(x => x
+                .FromAssembliesMatching("Businessmall.Application.dll")
+                .SelectAllClasses().InheritedFrom(typeof(ICommandHandlerWithReturn<,>))
+                .BindAllInterfaces());
 
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
 

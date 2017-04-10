@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Businessmall.Application.Infrastracture.Contracts;
-using Businessmall.Application.Commands;
-
+using Businessmall.Application.Commands.Orders;
+using Businessmall.Application.CommandResults;
+using Businessmall.Application.Queries.Product;
+using Businessmall.Application.QueryResults.Products;
+using Businessmall.Application.Events;
 namespace Shop.Controllers
 {
     public class OrderController : BaseController
@@ -21,9 +25,33 @@ namespace Shop.Controllers
             return View();
         }
 
-        public ActionResult PlaceOrder(PlaceOrderCommand command) 
+        [HttpGet]
+        public ActionResult PlaceOrder(GetOrderCheckoutDetailsQuery query) 
         {
-            return View();
+            
+            CheckoutProduct orderCheckoutDetails = _queryDispatcher.Dispatch<GetOrderCheckoutDetailsQuery, CheckoutProduct>(query);
+            return View(orderCheckoutDetails);
+            
+        }
+
+        [HttpPost]
+        public ActionResult CheckoutOrder(CheckoutOrderCommand command) 
+        {
+            command.userId = Convert.ToInt16(HttpContext.User.Identity.Name);
+            InsertShopOrderCommandResult result = _commandDispatcher.DispatchWithResult<CheckoutOrderCommand,InsertShopOrderCommandResult>(command);
+
+            //TODO: error handling 
+
+            MvcApplication._serviceBus.Publish(
+                new OrderPlacedEvent {
+                    _orderGUID = result.order_id,
+                    _productId = command.productId,
+                    _quantity = command.quantity,
+                    _userId = command.userId
+                }
+            );
+
+            return View(result);
         }
 
 

@@ -26,5 +26,16 @@ namespace Businessmall.Application.Infrastracture.Dispatchers {
            kernel.Execute(command);
 
        }
+
+       public TResult DispatchWithResult<TParameter, TResult>(TParameter command) where TParameter : ICommand where TResult : ICommandResult
+       {
+
+           var kernel = _kernel.Get<ICommandHandlerWithReturn<TParameter, TResult>>();
+
+           var result =  kernel.Execute(command);
+
+           return (TResult)result;
+       }
+
     }
 }

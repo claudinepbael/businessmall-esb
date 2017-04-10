@@ -10,5 +10,13 @@ namespace Businessmall.Application.Infrastracture.Contracts {
 
         void Execute(TParameter command);
 
+
+    }
+
+    public interface ICommandHandlerWithReturn<in TParameter, TResult>
+        where TParameter : ICommand
+        where TResult : ICommandResult {
+
+        TResult Execute(TParameter command);
     }
 }

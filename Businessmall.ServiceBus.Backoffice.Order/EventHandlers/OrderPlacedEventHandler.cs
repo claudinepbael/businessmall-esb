@@ -13,7 +13,7 @@ namespace Businessmall.Application.Backoffice.Order.EventHandlers
 
         public void ProcessMessage(IHandlerContext<OrderPlacedEvent> context) { 
         
-            //dispatch command to save order in backoffice (SaveOrderCommand) save bool resultin isOrderConfirmed
+            //TODO: dispatch command to save order in backoffice (SaveOrderCommand) save bool resultin isOrderConfirmed
             bool isOrderConfirmed = true;
 
             string errorMessage = "Just in case there are error saving order  (ie. out of stock)";

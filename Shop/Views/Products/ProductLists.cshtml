@@ -18,10 +18,10 @@
             <td>@product.price</td>
             <td>@product.availableQty</td>
             <td>
-                <a href="">
+                <a href="@Url.Action("PlaceOrder", "Order", new {productId = product.id })">
                    Order
                 </a>
             </td>
         </tr>
-    }
+    } 
 </table>

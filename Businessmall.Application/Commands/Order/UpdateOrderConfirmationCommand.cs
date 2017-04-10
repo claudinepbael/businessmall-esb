@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Businessmall.Application.Infrastracture.Contracts;
 
-namespace Businessmall.Application.Commands
+namespace Businessmall.Application.Commands.Orders
 {
     public class UpdateOrderConfirmationCommand : ICommand
     {

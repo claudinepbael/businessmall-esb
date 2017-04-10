@@ -71,5 +71,65 @@ namespace Businessmall.Application.Infrastracture.Data {
                  }
              }
          }
+
+         public void Execute<TParameter>(string command, TParameter parameter) where TParameter : ICommand
+         {
+             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[defaultConnection].ConnectionString))
+             {
+                 try
+                 {
+                     connection.Open();
+                     connection.Execute(command, parameter);
+                     connection.Close();
+                     connection.Dispose();
+                 }
+                 catch (Exception ex)
+                 {
+                     throw ex;
+                 }
+             }
+         }
+
+         public void Execute(string command)
+         {
+             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[defaultConnection].ConnectionString))
+             {
+                 try
+                 {
+                     connection.Open();
+                     connection.Execute(command);
+                     connection.Close();
+                     connection.Dispose();
+
+                 }
+                 catch (Exception ex)
+                 {
+                     throw ex;
+                 }
+             }
+         }
+
+         public TResult ExecuteWithReturn<TParameter, TResult>(string command, TParameter parameter)
+             where TParameter : ICommand
+         {
+             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[defaultConnection].ConnectionString))
+             {
+                 try
+                 {
+                     connection.Open();
+                     var result = connection.ExecuteScalar(command,parameter);
+                         //Execute(command);
+                     connection.Close();
+                     connection.Dispose();
+                     
+                     return (TResult)result;
+                 }
+                 catch (Exception ex)
+                 {
+                     throw ex;
+                 }
+             }
+         }
+
     }
 }

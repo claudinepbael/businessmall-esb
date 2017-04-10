@@ -12,23 +12,21 @@ namespace Businessmall.Application.Infrastracture.Contracts {
     public interface IDataContext {
         
 
-         IList<TResult> Find<TResult>(string query) where TResult : IQueryResult;
+        IList<TResult> Find<TResult>(string query) where TResult : IQueryResult;
 
-        
         TResult FindOne<TParameter, TResult>(string query, TParameter parameter) where TResult : IQueryResult
             where TParameter : IQuery;
 
-       
-        
-
         IList<T> Query<TParameter, T>(string query, TParameter parameter);
-
-       
-
-       void SetDBName(string connection);
-
-       
         
-        
+        void Execute<TParameter>(string command, TParameter parameter) where TParameter : ICommand;
+
+        void Execute(string command);
+
+        TResult ExecuteWithReturn<TParameter, TResult>(string command, TParameter parameter)
+            where TParameter : ICommand
+            ;
+
+        void SetDBName(string connection);
     }
 }

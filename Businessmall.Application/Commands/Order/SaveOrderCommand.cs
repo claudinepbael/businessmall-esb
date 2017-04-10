@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Businessmall.Application.Commands
+namespace Businessmall.Application.Commands.Orders
 {
     public class SaveOrderCommand : ICommand
     {

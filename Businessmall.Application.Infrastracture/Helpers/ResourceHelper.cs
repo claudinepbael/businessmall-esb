@@ -9,6 +9,7 @@ namespace Businessmall.Application.Infrastracture.Helpers {
     public static class ResourceHelper {
 
          public static string GetResourceString (this AppDomain domains, string resourceName){
+
             var assemblies = domains.GetAssemblies();
 
             foreach( var assembly in assemblies){
@@ -21,6 +22,7 @@ namespace Businessmall.Application.Infrastracture.Helpers {
                      }
                  }
             }
+
             return string.Empty;
 
         }
