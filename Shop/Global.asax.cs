@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Shuttle.Esb;
+using Shuttle.Esb.Sql.Subscription;
 using Shuttle.Core.Ninject;
 using Ninject;
 
@@ -35,6 +36,7 @@ namespace Shop
             _kernel = new StandardKernel();
             var container = new NinjectComponentContainer(_kernel);
             ServiceBus.Register(container);
+
             _serviceBus = ServiceBus.Create(container).Start();
         }
 

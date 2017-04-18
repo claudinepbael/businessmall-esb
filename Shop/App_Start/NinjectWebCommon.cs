@@ -91,14 +91,9 @@ namespace Shop.App_Start
 
             kernel.Bind<ICommandDispatcher>().To<CommandDispatcher>().WithConstructorArgument("kernel", kernel);
 
-            
-
-            kernel.Bind<IDataContext>().To<DataContext>();
-
-            
+            kernel.Bind<IDataContext>().To<DataContext>();            
 
             kernel.Bind<IApplicationHelper>().To<ApplicationHelper>().InSingletonScope();
-
 
             kernel.Bind(x => x
                .FromAssembliesMatching("Businessmall.Application.dll")
@@ -115,9 +110,10 @@ namespace Shop.App_Start
                 .SelectAllClasses().InheritedFrom(typeof(ICommandHandlerWithReturn<,>))
                 .BindAllInterfaces());
 
-            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+            NinjectDependencyResolver resolver = new NinjectDependencyResolver(kernel);
 
-           
+            DependencyResolver.SetResolver(resolver);
+
         }        
     }
 }

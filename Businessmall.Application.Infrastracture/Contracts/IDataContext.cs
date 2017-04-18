@@ -23,7 +23,7 @@ namespace Businessmall.Application.Infrastracture.Contracts {
 
         void Execute(string command);
 
-        TResult ExecuteWithReturn<TParameter, TResult>(string command, TParameter parameter)
+        TResult ExecuteWithResult<TParameter, TResult>(string command, TParameter parameter)
             where TParameter : ICommand
             ;
 

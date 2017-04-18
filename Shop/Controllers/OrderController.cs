@@ -40,8 +40,9 @@ namespace Shop.Controllers
             command.userId = Convert.ToInt16(HttpContext.User.Identity.Name);
             InsertShopOrderCommandResult result = _commandDispatcher.DispatchWithResult<CheckoutOrderCommand,InsertShopOrderCommandResult>(command);
 
-            //TODO: error handling 
+            //TODO: check result and error handling 
 
+            //If result is successful, publish an event
             MvcApplication._serviceBus.Publish(
                 new OrderPlacedEvent {
                     _orderGUID = result.order_id,

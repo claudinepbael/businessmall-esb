@@ -1,0 +1,49 @@
+﻿@model Businessmall.Application.QueryResults.Products.CheckoutProduct
+
+@{
+    ViewBag.Title = "PlaceOrder";
+}
+
+<h2>PlaceOrder</h2>
+
+@using (Html.BeginForm("CheckoutOrder","Order",FormMethod.Post)){
+
+    @Html.Hidden("productId",@Model.productId)
+    
+    <table class="table" id="checkout-product-table">
+        <tr>
+            <td>
+                <text>Name:</text>
+            </td><td>  
+                @Model.productName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <text>Price:</text> 
+            </td><td>
+                @Model.price
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <text>Available Qty:</text> 
+            </td><td>
+               @Model.availableQty
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <text>Quantity:</text>
+            </td><td> 
+                @Html.TextBox("quantity")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit"> Checkout </button>
+            </td>
+        </tr>
+    </table>
+}
+

@@ -109,7 +109,7 @@ namespace Businessmall.Application.Infrastracture.Data {
              }
          }
 
-         public TResult ExecuteWithReturn<TParameter, TResult>(string command, TParameter parameter)
+         public TResult ExecuteWithResult<TParameter, TResult>(string command, TParameter parameter)
              where TParameter : ICommand
          {
              using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[defaultConnection].ConnectionString))
