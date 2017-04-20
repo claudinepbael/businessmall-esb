@@ -38,7 +38,7 @@ namespace Shop.Controllers
         public ActionResult CheckoutOrder(CheckoutOrderCommand command) 
         {
             command.userId = Convert.ToInt16(HttpContext.User.Identity.Name);
-            InsertShopOrderCommandResult result = _commandDispatcher.DispatchWithResult<CheckoutOrderCommand,InsertShopOrderCommandResult>(command);
+            CheckoutShopOrderCommandResult result = _commandDispatcher.DispatchWithResult<CheckoutOrderCommand,CheckoutShopOrderCommandResult>(command);
 
             //TODO: check result and error handling 
 

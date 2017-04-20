@@ -9,6 +9,8 @@ using Shuttle.Core.Host;
 using Shuttle.Esb.Sql.Subscription;
 using Ninject;
 using Businessmall.Application.Events;
+using Businessmall.Application.Infrastracture.Contracts;
+using Businessmall.Application.Infrastracture.Dispatchers;
 
 
 
@@ -41,6 +43,7 @@ namespace Businessmall.SB.Subscriber.Order
 
 
             _kernel = new StandardKernel();
+            _kernel.Bind<ICommandDispatcher>().To<CommandDispatcher>().WithConstructorArgument("kernel", _kernel);
 
             var container = new NinjectComponentContainer(_kernel);
 
@@ -50,6 +53,8 @@ namespace Businessmall.SB.Subscriber.Order
 
             var subscriptionManager = _kernel.Get<ISubscriptionManager>();
             subscriptionManager.Subscribe<OrderPlacedEvent>();
+            subscriptionManager.Subscribe<OrderSavedEvent>();
+
             
             _bus = ServiceBus.Create(container).Start();
             

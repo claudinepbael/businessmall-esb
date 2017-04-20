@@ -86,6 +86,10 @@
       <HintPath>..\packages\Shuttle.Esb.Sql.Queue.8.0.0\lib\net45-full\Shuttle.Esb.Sql.Queue.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Shuttle.Esb.Sql.Subscription, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Shuttle.Esb.Sql.Subscription.8.0.0\lib\net45-full\Shuttle.Esb.Sql.Subscription.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -367,6 +371,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Products\ProductLists.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\CheckoutOrder.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\PlaceOrder.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

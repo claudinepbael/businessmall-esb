@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Businessmall.Application.CommandResults
+namespace Businessmall.SB.Subscriber.Order.Queries
 {
-    public class InsertShopOrderCommandResult : ICommandResult
+    public class GetProductDetailsQuery : IQuery
     {
-        public Guid order_id { get; set; }
+        public int productId { get; set; }
     }
 }

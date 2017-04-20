@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Businessmall.SB.Subscriber.Order.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BackOfficeDBConnection" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=NB-BAEL-PH\MSSQL2014;Initial Catalog=esb.businessmall;User ID=adminbm;Password=admin</Value>
+    </Setting>
+    <Setting Name="ShopDBConnection" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=NB-BAEL-PH\MSSQL2014;Initial Catalog=esb.shop;User ID=adminbm;Password=admin</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

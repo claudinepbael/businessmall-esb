@@ -10,7 +10,7 @@ using Businessmall.Application.Infrastracture.Helpers;
 
 namespace Businessmall.Application.CommandHandlers
 {
-    public class CheckoutOrderCommandHandlerWithResult : ICommandHandlerWithReturn<CheckoutOrderCommand, InsertShopOrderCommandResult>
+    public class CheckoutOrderCommandHandlerWithResult : ICommandHandlerWithReturn<CheckoutOrderCommand, CheckoutShopOrderCommandResult>
     {
         private IDataContext _dataContext;
         public CheckoutOrderCommandHandlerWithResult(IDataContext dataContext)
@@ -18,10 +18,10 @@ namespace Businessmall.Application.CommandHandlers
             _dataContext = dataContext;
         }
 
-        public InsertShopOrderCommandResult Execute(CheckoutOrderCommand command)
+        public CheckoutShopOrderCommandResult Execute(CheckoutOrderCommand command)
         {
             Guid result_order_id = _dataContext.ExecuteWithResult<CheckoutOrderCommand, Guid>(GetCommandQuery(), command);
-            return new InsertShopOrderCommandResult {order_id = result_order_id};
+            return new CheckoutShopOrderCommandResult {order_id = result_order_id};
         }
         
 
