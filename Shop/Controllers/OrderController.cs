@@ -64,7 +64,7 @@ namespace Shop.Controllers
 
 
             return Json(new  {
-                    is_confirmed = status,
+                    is_confirmed = status.status,
                    
                 }, JsonRequestBehavior.AllowGet);
 

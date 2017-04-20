@@ -115,7 +115,6 @@
   <ItemGroup>
     <EmbeddedResource Include="SqlQueries\GetOrderStatusQuery.sql" />
     <EmbeddedResource Include="SqlQueries\GetOrderDetailsQuery.sql" />
-    <Content Include="SqlQueries\InsertShopOrderToBackoffice.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

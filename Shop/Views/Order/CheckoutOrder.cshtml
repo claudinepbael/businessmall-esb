@@ -27,7 +27,7 @@ Order id : @Model.order_id
                     type: 'POST',
                     data: { Id: id },
                     success: function (result) {
-                        if (result == 1) {
+                        if (result.is_confirmed == 1) {
                             isToCheck = false;
                             redirectToConfirmationPage();
                            
