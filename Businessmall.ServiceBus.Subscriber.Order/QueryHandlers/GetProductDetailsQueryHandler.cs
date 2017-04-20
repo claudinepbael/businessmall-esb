@@ -39,7 +39,7 @@ namespace Businessmall.SB.Subscriber.Order.QueryHandlers
                     dataReader.Read();
                     product.name = dataReader["name"].ToString();
                     product.price = Convert.ToDecimal(dataReader["price"].ToString());
-                    product.avaialableQty = Convert.ToInt32(dataReader["qty_at_hand"].ToString());
+                    product.avaialableQty = Convert.ToInt32(dataReader["available_qty"].ToString());
                     product.productId = Convert.ToInt32(dataReader["id"].ToString());
                     
                 }

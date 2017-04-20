@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Businessmall.Application.Infrastracture.Contracts;
+using Businessmall.Application.Infrastracture.Constants;
 
 namespace Businessmall.Application.Events
 {
@@ -11,6 +12,6 @@ namespace Businessmall.Application.Events
     {
         public Guid _orderGUID { get; set; }
         public bool _isConfirmed { get; set; }
-        public string _message { get; set; }
+        public Constants.OrderStatus _status { get; set; }
     }
 }

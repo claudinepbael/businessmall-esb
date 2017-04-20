@@ -33,10 +33,7 @@ namespace Businessmall.SB.Subscriber.Order.CommandHandlers
                 command.Parameters.Add(new SqlParameter("@userId", SqlDbType.Int) { Value = saveCommand._userId });
                 command.Parameters.Add(new SqlParameter("@quantity", SqlDbType.Int) { Value = saveCommand._quantity });
 
-
                 int numberOfRowsAffected = command.ExecuteNonQuery();
-                
-
                 
                 return true;
             }
@@ -49,25 +46,19 @@ namespace Businessmall.SB.Subscriber.Order.CommandHandlers
 
         private string getSaveOrderQueryString()
         {
-
-            /*return @"
-                INSERT INTO [esb.businessmall].[dbo].Orders(order_id, product_id, user_id, quantity)
-                VALUES ( @orderId, @productId, @userId, @quantity)
-            ";*/
-
             
             return @"
-                INSERT INTO [esb.businessmall].[dbo].Orders
+                INSERT INTO [esb.businessmall].[dbo].[Order]
                     (order_id, product_id, user_id, quantity)
 	                SELECT
 		                @orderId,
 		                @productId,
 		                @userId,
 		                @quantity
-	                FROM [esb.businessmall].[dbo].Product
+	                FROM [esb.businessmall].[dbo].[Product]
 	                WHERE 
 		                id = @productId and
-		                qty_at_hand >= @quantity
+		                available_qty >= @quantity
                 ";
         }
     }

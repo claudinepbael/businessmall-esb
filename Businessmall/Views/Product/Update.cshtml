@@ -26,10 +26,18 @@
         </tr>
         <tr>
             <td>
-                <text>Quantity At Hand:</text>
+                <text>Initial Qty:</text>
             </td><td> 
-                @Html.TextBoxFor(model => model.QtyAtHand)
-                @Html.ValidationMessageFor(model => model.QtyAtHand)
+                @Html.TextBoxFor(model => model.InitialQty)
+                @Html.ValidationMessageFor(model => model.InitialQty)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <text>Purchased Qty:</text>
+            </td><td> 
+                @Html.TextBoxFor(model => model.PurchasedQty)
+                @Html.ValidationMessageFor(model => model.PurchasedQty)
             </td>
         </tr>
         <tr>

@@ -15,7 +15,8 @@
             <tr>
                 <th>Product Name</th>
                 <th>Price</th>
-                <th>Available Quantity</th>
+                <th>Initial Quantity</th>
+                <th>Purchased Quantity</th>
             </tr>
         </thead>
     }
@@ -23,7 +24,8 @@
         <tr>
             <td>@product.name</td>
             <td>@product.price</td>
-            <td>@product.qty_at_hand</td>
+            <td>@product.initial_qty</td>
+            <td>@product.purchased_qty</td>
             <td>
                 <a href="@Url.Action("Update", "Product", new {id = product.id })">
                    Update

@@ -37,13 +37,16 @@ namespace Shop.Controllers
 
            var result = _queryDispatcher.Dispatch<UserLoginQuery,LoggedInUser>(query);
 
-           if (result != null) { 
-                //call UserLoggedInEvent
+           if (result != null)
+           {
                FormsAuthentication.SetAuthCookie(result.userID.ToString(), false);
+               return RedirectToAction("ProductLists", "Products");
+           }
+           else 
+           {
+               return RedirectToAction("Index");
            }
             
-           return RedirectToAction("ProductLists","Products");
-
         }
     }
 }

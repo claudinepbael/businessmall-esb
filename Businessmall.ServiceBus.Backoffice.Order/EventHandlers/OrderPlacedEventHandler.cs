@@ -23,7 +23,6 @@ namespace Businessmall.Application.Backoffice.Order.EventHandlers
                 new OrderSavedEvent { 
                     _orderGUID = context.Message._orderGUID,
                     _isConfirmed = isOrderConfirmed,
-                    _message = errorMessage
                 }
             );
         }

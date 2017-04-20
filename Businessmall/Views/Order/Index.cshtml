@@ -1,0 +1,29 @@
+﻿@model Businessmall.ViewModels.Orders.ListOrdersViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Orders</h2>
+<table class="table" id="products-list-table">
+    @if (Model.Orders.Count <= 0) { 
+            <tr> No orders</tr>
+    }else{
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Product</th>
+                <th>user</th>
+                <th>Purchased Quantity</th>
+            </tr>
+        </thead>
+    }
+    @foreach (var order in Model.Orders) { 
+        <tr>
+            <td>@order.orderId</td>
+            <td>@order.productName</td>
+            <td>@order.userFullname</td>
+            <td>@order.quantity</td>
+        </tr>
+    }
+</table>

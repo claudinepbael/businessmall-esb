@@ -11,7 +11,8 @@ namespace Businessmall.ViewModels.Products
         public int Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public decimal QtyAtHand { get; set; }
+        public int InitialQty { get; set; }
+        public int PurchasedQty { get; set; }
 
         public UpdateProductViewModel(int id)
         {
@@ -26,7 +27,8 @@ namespace Businessmall.ViewModels.Products
             this.Id = id;
             this.Name = productToBeUpdated.name;
             this.Price = productToBeUpdated.price;
-            this.QtyAtHand = productToBeUpdated.qty_at_hand;
+            this.InitialQty = productToBeUpdated.initial_qty;
+            this.PurchasedQty = (int)productToBeUpdated.purchased_qty;
         }
     }
 }

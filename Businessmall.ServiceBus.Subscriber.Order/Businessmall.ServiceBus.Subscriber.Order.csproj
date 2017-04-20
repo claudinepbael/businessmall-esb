@@ -84,8 +84,10 @@
   <ItemGroup>
     <Compile Include="CommandHandlers\SaveOrderCommandHandler.cs" />
     <Compile Include="CommandHandlers\UpdateOrderConfirmationCommandHandler.cs" />
+    <Compile Include="CommandHandlers\UpdatePurchasedQtyCommandHandler.cs" />
     <Compile Include="Commands\SaveOrderCommand.cs" />
     <Compile Include="Commands\UpdateOrderConfirmationCommand.cs" />
+    <Compile Include="Commands\UpdatePurchasedQtyCommand.cs" />
     <Compile Include="Host.cs" />
     <Compile Include="EventHandlers\OrderPlacedEventHandler.cs" />
     <Compile Include="EventHandlers\OrderSavedEventHandler.cs" />

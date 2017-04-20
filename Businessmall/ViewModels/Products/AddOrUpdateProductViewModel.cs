@@ -15,6 +15,9 @@ namespace Businessmall.ViewModels.Products
         public decimal Price { get; set; }
 
         [Required]
-        public int QtyAtHand { get; set; }
+        public int InitialQty { get; set; }
+
+        [Required]
+        public int PurchasedQty { get; set; }
     }
 }

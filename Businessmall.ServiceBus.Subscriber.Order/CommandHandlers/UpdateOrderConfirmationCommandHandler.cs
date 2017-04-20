@@ -1,4 +1,5 @@
-﻿using Businessmall.SB.Subscriber.Order.Commands;
+﻿using Businessmall.Application.Infrastracture.Constants;
+using Businessmall.SB.Subscriber.Order.Commands;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,8 +12,10 @@ namespace Businessmall.SB.Subscriber.Order.CommandHandlers
 {
     public partial class CommandHandler
     {
-        public bool SaveOrder(UpdateOrderConfirmationCommand updateCommand)
+        public bool UpdateOrder(UpdateOrderConfirmationCommand updateCommand)
         {
+            string orderStatus = Constants.getOrderStatus(updateCommand._status);
+
             try
             {
                 SqlConnection SqlCon = new SqlConnection(Properties.Settings.Default.BackOfficeDBConnection);
@@ -26,6 +29,7 @@ namespace Businessmall.SB.Subscriber.Order.CommandHandlers
                 command.CommandText = getUpdateConfirmationQueryString();
                 command.Parameters.Add(new SqlParameter("@orderId", SqlDbType.UniqueIdentifier) { Value = updateCommand._orderGUID });
                 command.Parameters.Add(new SqlParameter("@isConfirmed", SqlDbType.Int) { Value = updateCommand._isConfirmed });
+                command.Parameters.Add(new SqlParameter("@status", SqlDbType.NVarChar) { Value = orderStatus });
 
 
                 int numberOfRowsAffected = command.ExecuteNonQuery();
@@ -43,9 +47,10 @@ namespace Businessmall.SB.Subscriber.Order.CommandHandlers
         {
 
             return @"
-                UPDATE [esb.shop].[dbo].[Orders]
+                UPDATE [esb.shop].[dbo].[Order]
                    SET 
-                      [is_confirmed] = @isConfirmed
+                      [is_confirmed] = @isConfirmed,
+                      [status]       = @status
                 WHERE
                     order_id = @orderId
             ";

@@ -145,6 +145,7 @@
       <DependentUpon>Businessmall.edmx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DTOs\Products\AddProductCommand.cs" />
@@ -159,12 +160,14 @@
     </Compile>
     <Compile Include="Interfaces\IDBContext.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Models\Orders\OrderDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BusinessmallService.cs" />
     <Compile Include="Repositories\DBContext.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Services\Encryptor.cs" />
+    <Compile Include="ViewModels\Orders\ListOrdersViewModel.cs" />
     <Compile Include="ViewModels\Products\AddOrUpdateProductViewModel.cs" />
     <Compile Include="ViewModels\Products\ListProductsViewModel.cs" />
     <Compile Include="ViewModels\Products\UpdateProductViewModel.cs" />
@@ -210,10 +213,10 @@
     <Content Include="Views\User\AddOrUpdateUserView.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

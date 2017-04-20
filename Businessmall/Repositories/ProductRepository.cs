@@ -26,7 +26,8 @@ namespace Businessmall.Repositories
             {
                 name = addProductCommand.Name,
                 price = addProductCommand.Price,
-                qty_at_hand = addProductCommand.QtyAtHand
+                initial_qty = addProductCommand.InitialQty,
+                purchased_qty = addProductCommand.PurchasedQty
             };
         }
             
@@ -45,9 +46,10 @@ namespace Businessmall.Repositories
             Product productToBeUpdated = GetProductById(updateProductCommand.Id);
             //using (var db = new BusinessmallEntities())
             //{
-                productToBeUpdated.name = updateProductCommand.Name;
-                productToBeUpdated.price = updateProductCommand.Price;
-                productToBeUpdated.qty_at_hand = updateProductCommand.QtyAtHand;
+                productToBeUpdated.name         = updateProductCommand.Name;
+                productToBeUpdated.price        = updateProductCommand.Price;
+                productToBeUpdated.initial_qty  = updateProductCommand.InitialQty;
+                productToBeUpdated.purchased_qty = updateProductCommand.PurchasedQty;
                 //_dbContext.GetDBContext().Entry(productToBeUpdated).State = EntityState.Modified;
                 _dbContext.GetDBContext().ObjectStateManager.ChangeObjectState(productToBeUpdated,EntityState.Modified);
                 _dbContext.GetDBContext().SaveChanges();

@@ -28,19 +28,6 @@ namespace Businessmall.SB.Subscriber.Order
 
         public void Start()
         {
-          /*
-            var structureMapRegistry = new Registry();
-            var registry = new StructureMapComponentRegistry(structureMapRegistry);
-
-            ServiceBus.Register(registry);
-
-            var resolver = new StructureMapComponentResolver(new Container(structureMapRegistry));
-
-            resolver.Resolve<ISubscriptionManager>().Subscribe<MemberRegisteredEvent>();
-
-            _bus = ServiceBus.Create(resolver).Start();
-          */
-
 
             _kernel = new StandardKernel();
             _kernel.Bind<ICommandDispatcher>().To<CommandDispatcher>().WithConstructorArgument("kernel", _kernel);
@@ -49,13 +36,10 @@ namespace Businessmall.SB.Subscriber.Order
 
             ServiceBus.Register(container);
 
-            //_kernel.Bind<ISubscriptionManager>().To<SubscriptionManager>();
-
             var subscriptionManager = _kernel.Get<ISubscriptionManager>();
             subscriptionManager.Subscribe<OrderPlacedEvent>();
             subscriptionManager.Subscribe<OrderSavedEvent>();
 
-            
             _bus = ServiceBus.Create(container).Start();
             
         }

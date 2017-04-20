@@ -10,7 +10,7 @@ namespace Businessmall.Application.DataSyncServices.QueryResults {
          public int id {get;set;}
          public string name {get;set;}
          public decimal price {get;set;}
-         public int qty_at_hand {get;set;}
+         public int available_qty { get; set; }
 
     }
 }

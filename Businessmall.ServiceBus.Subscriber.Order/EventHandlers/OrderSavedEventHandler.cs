@@ -26,18 +26,13 @@ namespace Businessmall.SB.Subscriber.Order
         public void ProcessMessage(IHandlerContext<OrderSavedEvent> context)
         {
 
-            //send command to update shop data is_confirmed property
-
             UpdateOrderConfirmationCommand command = new UpdateOrderConfirmationCommand { 
                 _isConfirmed    = context.Message._isConfirmed,
-                _orderGUID      = context.Message._orderGUID
+                _orderGUID      = context.Message._orderGUID,
+                _status         = context.Message._status
             };
 
-            bool result = _commandHandler.SaveOrder(command);
-
-            //send command to inform users that the order has been successfuly placed or not
-                //-> this will stop the polling after the order has been placed
-            //////^THIS MIGHT NOT BE THE CASE ANYMORE
+            bool result = _commandHandler.UpdateOrder(command);
             
         }
 

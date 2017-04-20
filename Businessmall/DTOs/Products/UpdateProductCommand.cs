@@ -9,7 +9,8 @@ namespace Businessmall.DTOs.Products
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int QtyAtHand { get; set; }
+        public int InitialQty { get; set; }
+        public int PurchasedQty { get; set; }
         public decimal Price { get; set; }
     }
 }

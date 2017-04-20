@@ -19,9 +19,8 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("ebs.businessmallModel", "FK_OrderProducts_orders", "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Businessmall.Order), "OrderProduct", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Businessmall.OrderProduct), true)]
 [assembly: EdmRelationshipAttribute("ebs.businessmallModel", "FK_orders_users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Businessmall.User), "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Businessmall.Order), true)]
-[assembly: EdmRelationshipAttribute("ebs.businessmallModel", "FK_OrderProducts_products", "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Businessmall.Product), "OrderProduct", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Businessmall.OrderProduct), true)]
+[assembly: EdmRelationshipAttribute("ebs.businessmallModel", "FK_Orders_Product", "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Businessmall.Product), "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Businessmall.Order), true)]
 
 #endregion
 
@@ -92,22 +91,6 @@ namespace Businessmall
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<OrderProduct> OrderProducts
-        {
-            get
-            {
-                if ((_OrderProducts == null))
-                {
-                    _OrderProducts = base.CreateObjectSet<OrderProduct>("OrderProducts");
-                }
-                return _OrderProducts;
-            }
-        }
-        private ObjectSet<OrderProduct> _OrderProducts;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Product> Products
         {
             get
@@ -150,14 +133,6 @@ namespace Businessmall
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the OrderProducts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToOrderProducts(OrderProduct orderProduct)
-        {
-            base.AddObject("OrderProducts", orderProduct);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Products EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToProducts(Product product)
@@ -196,13 +171,17 @@ namespace Businessmall
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
         /// <param name="user_id">Initial value of the user_id property.</param>
-        /// <param name="date_ordered">Initial value of the date_ordered property.</param>
-        public static Order CreateOrder(global::System.Int32 id, global::System.Int32 user_id, global::System.DateTime date_ordered)
+        /// <param name="order_id">Initial value of the order_id property.</param>
+        /// <param name="product_id">Initial value of the product_id property.</param>
+        /// <param name="quantity">Initial value of the quantity property.</param>
+        public static Order CreateOrder(global::System.Int32 id, global::System.Int32 user_id, global::System.Guid order_id, global::System.Int32 product_id, global::System.Int32 quantity)
         {
             Order order = new Order();
             order.id = id;
             order.user_id = user_id;
-            order.date_ordered = date_ordered;
+            order.order_id = order_id;
+            order.product_id = product_id;
+            order.quantity = quantity;
             return order;
         }
 
@@ -264,9 +243,9 @@ namespace Businessmall
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime date_ordered
+        public Nullable<global::System.DateTime> date_ordered
         {
             get
             {
@@ -281,35 +260,85 @@ namespace Businessmall
                 Ondate_orderedChanged();
             }
         }
-        private global::System.DateTime _date_ordered;
-        partial void Ondate_orderedChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _date_ordered;
+        partial void Ondate_orderedChanging(Nullable<global::System.DateTime> value);
         partial void Ondate_orderedChanged();
-
-        #endregion
-
-        #region Navigation Properties
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ebs.businessmallModel", "FK_OrderProducts_orders", "OrderProduct")]
-        public EntityCollection<OrderProduct> OrderProducts
+        public global::System.Guid order_id
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<OrderProduct>("ebs.businessmallModel.FK_OrderProducts_orders", "OrderProduct");
+                return _order_id;
             }
             set
             {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<OrderProduct>("ebs.businessmallModel.FK_OrderProducts_orders", "OrderProduct", value);
-                }
+                Onorder_idChanging(value);
+                ReportPropertyChanging("order_id");
+                _order_id = StructuralObject.SetValidValue(value, "order_id");
+                ReportPropertyChanged("order_id");
+                Onorder_idChanged();
             }
         }
+        private global::System.Guid _order_id;
+        partial void Onorder_idChanging(global::System.Guid value);
+        partial void Onorder_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 product_id
+        {
+            get
+            {
+                return _product_id;
+            }
+            set
+            {
+                Onproduct_idChanging(value);
+                ReportPropertyChanging("product_id");
+                _product_id = StructuralObject.SetValidValue(value, "product_id");
+                ReportPropertyChanged("product_id");
+                Onproduct_idChanged();
+            }
+        }
+        private global::System.Int32 _product_id;
+        partial void Onproduct_idChanging(global::System.Int32 value);
+        partial void Onproduct_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 quantity
+        {
+            get
+            {
+                return _quantity;
+            }
+            set
+            {
+                OnquantityChanging(value);
+                ReportPropertyChanging("quantity");
+                _quantity = StructuralObject.SetValidValue(value, "quantity");
+                ReportPropertyChanged("quantity");
+                OnquantityChanged();
+            }
+        }
+        private global::System.Int32 _quantity;
+        partial void OnquantityChanging(global::System.Int32 value);
+        partial void OnquantityChanged();
+
+        #endregion
+
+        #region Navigation Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -348,144 +377,6 @@ namespace Businessmall
                 }
             }
         }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ebs.businessmallModel", Name="OrderProduct")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class OrderProduct : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new OrderProduct object.
-        /// </summary>
-        /// <param name="id">Initial value of the id property.</param>
-        /// <param name="order_id">Initial value of the order_id property.</param>
-        /// <param name="product_id">Initial value of the product_id property.</param>
-        /// <param name="qty">Initial value of the qty property.</param>
-        public static OrderProduct CreateOrderProduct(global::System.Int32 id, global::System.Int32 order_id, global::System.Int32 product_id, global::System.Int32 qty)
-        {
-            OrderProduct orderProduct = new OrderProduct();
-            orderProduct.id = id;
-            orderProduct.order_id = order_id;
-            orderProduct.product_id = product_id;
-            orderProduct.qty = qty;
-            return orderProduct;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value, "id");
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 order_id
-        {
-            get
-            {
-                return _order_id;
-            }
-            set
-            {
-                Onorder_idChanging(value);
-                ReportPropertyChanging("order_id");
-                _order_id = StructuralObject.SetValidValue(value, "order_id");
-                ReportPropertyChanged("order_id");
-                Onorder_idChanged();
-            }
-        }
-        private global::System.Int32 _order_id;
-        partial void Onorder_idChanging(global::System.Int32 value);
-        partial void Onorder_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 product_id
-        {
-            get
-            {
-                return _product_id;
-            }
-            set
-            {
-                Onproduct_idChanging(value);
-                ReportPropertyChanging("product_id");
-                _product_id = StructuralObject.SetValidValue(value, "product_id");
-                ReportPropertyChanged("product_id");
-                Onproduct_idChanged();
-            }
-        }
-        private global::System.Int32 _product_id;
-        partial void Onproduct_idChanging(global::System.Int32 value);
-        partial void Onproduct_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 qty
-        {
-            get
-            {
-                return _qty;
-            }
-            set
-            {
-                OnqtyChanging(value);
-                ReportPropertyChanging("qty");
-                _qty = StructuralObject.SetValidValue(value, "qty");
-                ReportPropertyChanged("qty");
-                OnqtyChanged();
-            }
-        }
-        private global::System.Int32 _qty;
-        partial void OnqtyChanging(global::System.Int32 value);
-        partial void OnqtyChanged();
-
-        #endregion
-
-        #region Navigation Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -493,54 +384,16 @@ namespace Businessmall
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ebs.businessmallModel", "FK_OrderProducts_orders", "Order")]
-        public Order Order
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Order>("ebs.businessmallModel.FK_OrderProducts_orders", "Order").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Order>("ebs.businessmallModel.FK_OrderProducts_orders", "Order").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Order> OrderReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Order>("ebs.businessmallModel.FK_OrderProducts_orders", "Order");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Order>("ebs.businessmallModel.FK_OrderProducts_orders", "Order", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ebs.businessmallModel", "FK_OrderProducts_products", "Product")]
+        [EdmRelationshipNavigationPropertyAttribute("ebs.businessmallModel", "FK_Orders_Product", "Product")]
         public Product Product
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("ebs.businessmallModel.FK_OrderProducts_products", "Product").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("ebs.businessmallModel.FK_Orders_Product", "Product").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("ebs.businessmallModel.FK_OrderProducts_products", "Product").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("ebs.businessmallModel.FK_Orders_Product", "Product").Value = value;
             }
         }
         /// <summary>
@@ -552,13 +405,13 @@ namespace Businessmall
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("ebs.businessmallModel.FK_OrderProducts_products", "Product");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("ebs.businessmallModel.FK_Orders_Product", "Product");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Product>("ebs.businessmallModel.FK_OrderProducts_products", "Product", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Product>("ebs.businessmallModel.FK_Orders_Product", "Product", value);
                 }
             }
         }
@@ -583,14 +436,14 @@ namespace Businessmall
         /// <param name="id">Initial value of the id property.</param>
         /// <param name="name">Initial value of the name property.</param>
         /// <param name="price">Initial value of the price property.</param>
-        /// <param name="qty_at_hand">Initial value of the qty_at_hand property.</param>
-        public static Product CreateProduct(global::System.Int32 id, global::System.String name, global::System.Decimal price, global::System.Int32 qty_at_hand)
+        /// <param name="initial_qty">Initial value of the initial_qty property.</param>
+        public static Product CreateProduct(global::System.Int32 id, global::System.String name, global::System.Decimal price, global::System.Int32 initial_qty)
         {
             Product product = new Product();
             product.id = id;
             product.name = name;
             product.price = price;
-            product.qty_at_hand = qty_at_hand;
+            product.initial_qty = initial_qty;
             return product;
         }
 
@@ -678,24 +531,72 @@ namespace Businessmall
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 qty_at_hand
+        public global::System.Int32 initial_qty
         {
             get
             {
-                return _qty_at_hand;
+                return _initial_qty;
             }
             set
             {
-                Onqty_at_handChanging(value);
-                ReportPropertyChanging("qty_at_hand");
-                _qty_at_hand = StructuralObject.SetValidValue(value, "qty_at_hand");
-                ReportPropertyChanged("qty_at_hand");
-                Onqty_at_handChanged();
+                Oninitial_qtyChanging(value);
+                ReportPropertyChanging("initial_qty");
+                _initial_qty = StructuralObject.SetValidValue(value, "initial_qty");
+                ReportPropertyChanged("initial_qty");
+                Oninitial_qtyChanged();
             }
         }
-        private global::System.Int32 _qty_at_hand;
-        partial void Onqty_at_handChanging(global::System.Int32 value);
-        partial void Onqty_at_handChanged();
+        private global::System.Int32 _initial_qty;
+        partial void Oninitial_qtyChanging(global::System.Int32 value);
+        partial void Oninitial_qtyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> purchased_qty
+        {
+            get
+            {
+                return _purchased_qty;
+            }
+            set
+            {
+                Onpurchased_qtyChanging(value);
+                ReportPropertyChanging("purchased_qty");
+                _purchased_qty = StructuralObject.SetValidValue(value, "purchased_qty");
+                ReportPropertyChanged("purchased_qty");
+                Onpurchased_qtyChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _purchased_qty;
+        partial void Onpurchased_qtyChanging(Nullable<global::System.Int32> value);
+        partial void Onpurchased_qtyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> available_qty
+        {
+            get
+            {
+                return _available_qty;
+            }
+            set
+            {
+                Onavailable_qtyChanging(value);
+                ReportPropertyChanging("available_qty");
+                _available_qty = StructuralObject.SetValidValue(value, "available_qty");
+                ReportPropertyChanged("available_qty");
+                Onavailable_qtyChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _available_qty;
+        partial void Onavailable_qtyChanging(Nullable<global::System.Int32> value);
+        partial void Onavailable_qtyChanged();
 
         #endregion
 
@@ -707,18 +608,18 @@ namespace Businessmall
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ebs.businessmallModel", "FK_OrderProducts_products", "OrderProduct")]
-        public EntityCollection<OrderProduct> OrderProducts
+        [EdmRelationshipNavigationPropertyAttribute("ebs.businessmallModel", "FK_Orders_Product", "Order")]
+        public EntityCollection<Order> Orders
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<OrderProduct>("ebs.businessmallModel.FK_OrderProducts_products", "OrderProduct");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Order>("ebs.businessmallModel.FK_Orders_Product", "Order");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<OrderProduct>("ebs.businessmallModel.FK_OrderProducts_products", "OrderProduct", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Order>("ebs.businessmallModel.FK_Orders_Product", "Order", value);
                 }
             }
         }

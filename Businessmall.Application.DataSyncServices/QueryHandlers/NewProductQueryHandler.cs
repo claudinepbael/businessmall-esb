@@ -37,7 +37,7 @@ namespace Businessmall.Application.DataSyncServices.QueryHandlers {
                         newProduct.id = Convert.ToInt32(dataReader["id"].ToString());
                         newProduct.name = dataReader["name"].ToString();
                         newProduct.price = Convert.ToDecimal(dataReader["price"].ToString());
-                        newProduct.qty_at_hand = Convert.ToInt32(dataReader["qty_at_hand"].ToString());
+                        newProduct.available_qty = Convert.ToInt32(dataReader["available_qty"].ToString());
                         newProducts.Add(newProduct);
                     }
                 }
@@ -72,21 +72,21 @@ namespace Businessmall.Application.DataSyncServices.QueryHandlers {
                     SELECT   bmall_prod.id as id
 		                    ,bmall_prod.name as name
 		                    ,bmall_prod.price as price
-		                    ,bmall_prod.qty_at_hand as qty_at_hand
+		                    ,bmall_prod.available_qty as available_qty
                     FROM [esb.businessmall].dbo.Product  as bmall_prod 
-                    LEFT OUTER JOIN [esb.shop].dbo.Products  new_product ON new_product.product_id = bmall_prod.id
+                    LEFT OUTER JOIN [esb.shop].dbo.Product  new_product ON new_product.product_id = bmall_prod.id
                     where new_product.product_id is null";
         }
         private string SQLQuery() {
             return @"
-                    INSERT INTO [esb.shop].dbo.Products (product_id,name,price,available_qty) 
+                    INSERT INTO [esb.shop].dbo.Product (product_id,name,price,available_qty) 
                     
                     SELECT   bmall_prod.id as id
 		                    ,bmall_prod.name as name
 		                    ,bmall_prod.price as price
-		                    ,bmall_prod.qty_at_hand as qty_at_hand
+		                    ,bmall_prod.available_qty as available_qty
                     FROM [esb.businessmall].dbo.Product  as bmall_prod 
-                    LEFT OUTER JOIN [esb.shop].dbo.Products  new_product ON new_product.product_id = bmall_prod.id
+                    LEFT OUTER JOIN [esb.shop].dbo.Product  new_product ON new_product.product_id = bmall_prod.id
                     where new_product.product_id is null ";
         }
     }
