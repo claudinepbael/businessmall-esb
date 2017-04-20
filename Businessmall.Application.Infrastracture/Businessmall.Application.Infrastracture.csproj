@@ -66,6 +66,7 @@
     <Compile Include="Contracts\ICommand.cs" />
     <Compile Include="Contracts\ICommandDispatcher.cs" />
     <Compile Include="Contracts\ICommandHandler.cs" />
+    <Compile Include="Contracts\ICommandResult.cs" />
     <Compile Include="Contracts\IDataContext.cs" />
     <Compile Include="Contracts\IEvent.cs" />
     <Compile Include="Contracts\IQuery.cs" />
