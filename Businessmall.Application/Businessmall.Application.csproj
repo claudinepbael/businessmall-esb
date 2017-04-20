@@ -59,12 +59,18 @@
     <Compile Include="Commands\Order\UpdateOrderConfirmationCommand.cs" />
     <Compile Include="Events\OrderPlacedEvent.cs" />
     <Compile Include="Events\OrderSavedEvent.cs" />
+    <Compile Include="Queries\Order\GetOrderDetailsQuery.cs" />
+    <Compile Include="Queries\Order\GetOrderStatusQuery.cs" />
     <Compile Include="Queries\Product\GetAvailableProductsQuery.cs" />
     <Compile Include="Queries\Product\GetOrderCheckoutDetailsQuery.cs" />
     <Compile Include="Queries\ShopUser\UserLoginQuery.cs" />
+    <Compile Include="QueryHandlers\Orders\GetOrderDetailsQueryHandler.cs" />
+    <Compile Include="QueryHandlers\Orders\GetOrderStatusQueryHandler.cs" />
     <Compile Include="QueryHandlers\Products\GetAvailableProductsQueryHandler.cs" />
     <Compile Include="QueryHandlers\Products\GetOrderCheckoutDetailsQueryHandler.cs" />
     <Compile Include="QueryHandlers\ShopUsers\UserLogInQueryHandler.cs" />
+    <Compile Include="QueryResults\Orders\OrderDetailsQueryResult.cs" />
+    <Compile Include="QueryResults\Orders\OrderStatusQueryResult.cs" />
     <Compile Include="QueryResults\Products\AvailableProduct.cs" />
     <Compile Include="QueryResults\Products\CheckoutProduct.cs" />
     <Compile Include="QueryResults\ShopUsers\LoggedInUser.cs" />
@@ -105,6 +111,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SqlQueries\CheckoutShopOrderQuery.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SqlQueries\GetOrderStatusQuery.sql" />
+    <EmbeddedResource Include="SqlQueries\GetOrderDetailsQuery.sql" />
+    <Content Include="SqlQueries\InsertShopOrderToBackoffice.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

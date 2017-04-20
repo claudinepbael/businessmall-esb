@@ -2,14 +2,56 @@
 
 @{
     ViewBag.Title = "CheckoutOrder";
+   Layout = "~/Views/Master_Pages/Layout.cshtml";
 }
-
+<div class="view-content">
 <h2>CheckoutOrder</h2>
 
 Waiting...
 
 Order id : @Model.order_id
-
+<input type="hidden" class="order-id" value="@Model.order_id" />
 @{
     //insert ajax to check if the order is confirmed
     }
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var isToCheck = true;
+        setInterval(function () {
+            if (isToCheck) {
+                var id = '@Html.Raw(Model.order_id)';
+
+                $.ajax({
+                    url: '/Order/GetOrderStatus',
+                    type: 'POST',
+                    data: { Id: id },
+                    success: function (result) {
+                        if (result == 1) {
+                            isToCheck = false;
+                            redirectToConfirmationPage();
+                           
+                        } else if (result == 0) {
+                            
+                        }
+                    }
+                })
+            }
+        }, 5000);
+        function redirectToConfirmationPage() {
+            var id = '@Html.Raw(Model.order_id)';
+        $.ajax({
+            url: '/Order/OrderConfirmation',
+            type: 'POST',
+            data: { order_id: id },
+            success: function (data) {
+                $(".view-content").html(data.html);
+            }
+        })
+    };
+ 
+    });
+
+
+   
+</script>

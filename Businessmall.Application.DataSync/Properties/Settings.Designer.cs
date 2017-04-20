@@ -25,8 +25,8 @@ namespace Businessmall.Application.DataSync.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=NB-RONATAY-PH\\MSSQL2K8;Persist Security Info=True;Integrated Security" +
-            " = True; MultipleActiveResultSets=True;initial catalog=esb.businessmall;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NB-BAEL-PH\\MSSQL2014;Initial Catalog=esb.businessmall;User ID=adminbm" +
+            ";Password=admin")]
         public string DBConnection {
             get {
                 return ((string)(this["DBConnection"]));
