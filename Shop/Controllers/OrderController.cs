@@ -10,6 +10,8 @@ using Businessmall.Application.CommandResults;
 using Businessmall.Application.Queries.Product;
 using Businessmall.Application.QueryResults.Products;
 using Businessmall.Application.Events;
+using Businessmall.Application.Queries.Order;
+using Businessmall.Application.QueryResults.Orders;
 namespace Shop.Controllers
 {
     public class OrderController : BaseController
@@ -53,6 +55,30 @@ namespace Shop.Controllers
             );
 
             return View(result);
+        }
+
+        [HttpPost]
+        public ActionResult GetOrderStatus (GetOrderStatusQuery query){
+
+            OrderStatusQueryResult status = _queryDispatcher.Dispatch<GetOrderStatusQuery,OrderStatusQueryResult>(query);
+
+
+            return Json(new  {
+                    is_confirmed = status,
+                   
+                }, JsonRequestBehavior.AllowGet);
+
+        }
+
+
+        [HttpPost]
+        public ActionResult OrderConfirmation (GetOrderDetailsQuery query){
+
+            OrderDetailsQueryResult orderDetailsModel = _queryDispatcher.Dispatch<GetOrderDetailsQuery,OrderDetailsQueryResult>(query);
+
+            return Json(new {
+                html = RenderToString("OrderConfirmation",orderDetailsModel)
+            });
         }
 
 
