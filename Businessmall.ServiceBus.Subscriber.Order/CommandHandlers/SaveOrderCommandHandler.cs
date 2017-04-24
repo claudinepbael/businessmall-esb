@@ -32,6 +32,7 @@ namespace Businessmall.SB.Subscriber.Order.CommandHandlers
                 command.Parameters.Add(new SqlParameter("@productId", SqlDbType.Int){ Value = saveCommand._productId});
                 command.Parameters.Add(new SqlParameter("@userId", SqlDbType.Int) { Value = saveCommand._userId });
                 command.Parameters.Add(new SqlParameter("@quantity", SqlDbType.Int) { Value = saveCommand._quantity });
+                command.Parameters.Add(new SqlParameter("@total_price", SqlDbType.Decimal) { Value = saveCommand._totalPrice });
 
                 int numberOfRowsAffected = command.ExecuteNonQuery();
                 
@@ -49,12 +50,13 @@ namespace Businessmall.SB.Subscriber.Order.CommandHandlers
             
             return @"
                 INSERT INTO [esb.businessmall].[dbo].[Order]
-                    (order_id, product_id, user_id, quantity)
+                    (order_id, product_id, user_id, quantity,total_price)
 	                SELECT
 		                @orderId,
 		                @productId,
 		                @userId,
-		                @quantity
+		                @quantity,
+                        @total_price
 	                FROM [esb.businessmall].[dbo].[Product]
 	                WHERE 
 		                id = @productId and

@@ -181,8 +181,7 @@
       <DependentUpon>BusinessmallShop.edmx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Global.asax.cs">
@@ -195,7 +194,6 @@
     <Compile Include="User.cs">
       <DependentUpon>BusinessmallShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\Products\ShopListProductsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -289,6 +287,7 @@
     <Content Include="Content\Cisco\images\warehouse2_3.jpg" />
     <Content Include="Content\Cisco\images\welcome-banner.jpg" />
     <Content Include="Content\Cisco\images\welcomemessage_bg.png" />
+    <Content Include="Content\Cisco\shop.css" />
     <Content Include="Content\Cisco\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap-3.3.4.min.js" />
@@ -328,11 +327,13 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Order\OrderConfirmation.cshtml" />
+    <Content Include="Views\Orders\OrderConfirmation.cshtml" />
+    <Content Include="Views\Orders\History.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -396,11 +397,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Products\ProductLists.cshtml" />
+    <Content Include="Views\Products\ProductsList.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Order\CheckoutOrder.cshtml" />
-    <Content Include="Views\Order\PlaceOrder.cshtml" />
+    <Content Include="Views\Orders\CheckoutOrder.cshtml" />
+    <Content Include="Views\Orders\PlaceOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Master_Pages\Layout.cshtml">
