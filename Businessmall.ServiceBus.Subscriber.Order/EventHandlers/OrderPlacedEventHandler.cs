@@ -62,12 +62,17 @@ namespace Businessmall.SB.Subscriber.Order
             }
             else
             {
+                decimal price = product.price * message._quantity;  
+                //This should be saved if the priority is the backoffice details. Use message._total_price if the priority is what was shown to the user in shop
+
                 SaveOrderCommand command = new SaveOrderCommand
                 {
                     _orderGUID = message._orderGUID,
                     _productId = message._productId,
                     _userId = message._userId,
-                    _quantity = message._quantity
+                    _quantity = message._quantity,
+                    //_totalPrice = price
+                    _totalPrice = message._total_price
                 };
 
                 try

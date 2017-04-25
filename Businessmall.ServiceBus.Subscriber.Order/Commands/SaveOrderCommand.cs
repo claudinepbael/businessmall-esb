@@ -13,5 +13,6 @@ namespace Businessmall.SB.Subscriber.Order.Commands
         public int _productId { get; set; }
         public int _quantity { get; set; }
         public int _userId { get; set; }
+        public decimal _totalPrice { get; set; }
     }
 }

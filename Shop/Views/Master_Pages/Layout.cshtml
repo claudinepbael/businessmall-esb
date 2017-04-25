@@ -10,7 +10,7 @@
     <link href="~/Content/blueprint/print.css" rel="stylesheet" type="text/css" media="print" />
     <link href="~/Content/blueprint/screen.css" rel="stylesheet" type="text/css" media="screen, projection" />
     <link href="~/Content/Cisco/style.css" rel="stylesheet" />
-
+    <link href="~/Content/Cisco/shop.css" rel="stylesheet" />
     <title>Cisco Businessmall</title>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script>window.jQuery || document.write('<script src="@Url.Content("~/Scripts/jquery-1.11.3.min.js")"><\/script>')</script>
@@ -32,10 +32,18 @@
                 </div>
             </div>
         </div>
-        <div class="grid_12 content-wrapper">
+        <div class="grid_12">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Products", "ProductsList", "Products")</li>
+                    <li>@Html.ActionLink("Orders", "History", "Orders")</li>
+                </ul>
+            </div>
+        </nav>
+        </div>
+        <div class="grid_12 content-wrapper shop-body">
             @RenderBody()
-
-
         </div>
 
     </div>

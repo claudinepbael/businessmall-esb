@@ -40,7 +40,7 @@ namespace Shop.Controllers
            if (result != null)
            {
                FormsAuthentication.SetAuthCookie(result.userID.ToString(), false);
-               return RedirectToAction("ProductLists", "Products");
+               return RedirectToAction("ProductsList", "Products");
            }
            else 
            {

@@ -10,33 +10,35 @@
     <link href="~/Content/blueprint/print.css" rel="stylesheet" type="text/css" media="print" />
     <link href="~/Content/blueprint/screen.css" rel="stylesheet" type="text/css" media="screen, projection" />
     <link href="~/Content/Cisco/style.css" rel="stylesheet" />
-
+    <link href="~/Content/Cisco/shop.css" rel="stylesheet" />
     <title>Cisco Businessmall</title>
 </head>
 
 <body>
-    <div class="container-account">
-        <div class="header logon-header">
-                    <div class="main-header-inner-wrapper last">
-                        <div class="span-6 alpha logo first">
-                            <img src="~/Content/Cisco/images/cisco_refresh.png" />
-                        </div>
-                        <div class="span-9 logo ">
-                            <img class="outlet_logo" src="~/Content/Cisco/images/outlet_text.png" />
-                        </div>
-                        <div class="span-9 margin-left-35 margin-top-30 omega login-form last">
-                            @Html.Partial("_Login")
-                        </div>
-                    </div>
-                </div>
-                <div class="grid_12">
-                    @RenderBody()
-            
 
+    <div class="container-account">
+
+        <div class="header logon-header">
+
+            <div class="main-header-inner-wrapper last">
+                <div class="span-6 alpha logo first">
+                    <img src="~/Content/Cisco/images/cisco_refresh.png" />
+                </div>
+                <div class="span-9 logo ">
+                    <img class="outlet_logo" src="~/Content/Cisco/images/outlet_text.png" />
+                </div>
+                <div class="span-9 margin-left-35 margin-top-30 omega login-form last">
+                    @Html.Partial("_Login")
+                </div>
+            </div>
+
+         </div>
+
+         <div class="grid_12">
+            @RenderBody()
         </div>
 
     </div>
-
 
 </body>
 

@@ -17,7 +17,7 @@ namespace Shop.Controllers
          
         public ProductsController(IQueryDispatcher queryDispatcher,ICommandDispatcher commandDispatcher):base(queryDispatcher,commandDispatcher){
         }
-        public ActionResult ProductLists()
+        public ActionResult ProductsList()
         {
             List<AvailableProduct> availableProducts = _queryDispatcher.Dispatch<GetAvailableProductsQuery,SelectList<AvailableProduct>>(new GetAvailableProductsQuery()).Data;
             return View(availableProducts);

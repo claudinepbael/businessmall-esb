@@ -13,6 +13,7 @@ namespace Businessmall.Application.Events
         public int _productId { get; set; }
         public int _quantity { get; set; }
         public int _userId { get; set; }
+        public decimal _total_price { get; set; }
     }
 
 }
