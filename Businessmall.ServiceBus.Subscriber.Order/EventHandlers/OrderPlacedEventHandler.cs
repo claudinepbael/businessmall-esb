@@ -38,9 +38,16 @@ namespace Businessmall.SB.Subscriber.Order
 
             if (orderSavedEvent._status == Constants.OrderStatus.CONFIRMED) {
                 updateInventory(context.Message._productId, context.Message._quantity);
+                
+                ShopProductInventoryUpdateCommand inventoryCommand = new ShopProductInventoryUpdateCommand{
+                    productID = context.Message._productId
+                };
+
+                _commandHandler.UpdateShopProductInventory(inventoryCommand);
             }
 
             context.Publish(orderSavedEvent);
+
         }
 
         private OrderSavedEvent addOrder(OrderPlacedEvent message, ProductDetails product) { 
